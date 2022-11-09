@@ -17,5 +17,6 @@ Dengan demikian jika terjadi value null pada key thumb maka gambar yang ditampil
 <br><br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Gambar%2005.png" width="300"/><br>
 ## Paket yang Digunakan
 http: ^0.13.5 (https://pub.dev/packages/http)<br>
-## Dokumentasi JSON API dan URL endpoint yang digunakan di program dapat diakses di:
+## Referensi 
+Dokumentasi JSON API dan URL endpoint yang digunakan di program dapat diakses di:
 https://github.com/tomorisakura/unofficial-masakapahariini-api
