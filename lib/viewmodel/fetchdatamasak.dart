@@ -17,3 +17,20 @@ Future<List<Result>> fetchMasak() async {
     throw Exception('Failed to load data masak');
   }
 }
+
+Future<List<Result>> fetchCariResep(String katakunci) async {
+  List<Result> dataresep;
+
+  Response response = await get(Uri.parse(
+      'https://masak-apa.tomorisakura.vercel.app/api/search/?q=$katakunci'));
+  
+  if (response.statusCode == 200) {
+    final masak = masakFromJson(response.body);
+    Map jsonMasak = masak.toJson();
+    List listMasak = jsonMasak["results"] as List;
+    dataresep = listMasak.map<Result>((json) => Result.fromJson(json)).toList();
+    return dataresep;
+  } else {
+    throw Exception('Failed to load data masak');
+  }
+}

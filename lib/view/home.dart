@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:async_programming_futurebuilder_resepmasak/view/detailmasak.dart';
 import 'package:async_programming_futurebuilder_resepmasak/viewmodel/fetchdatamasak.dart';
 import 'package:async_programming_futurebuilder_resepmasak/model/resep.dart';
+import 'package:async_programming_futurebuilder_resepmasak/view/navigasidrawer.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -12,6 +13,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Masak Apa'),
       ),
+      drawer: const MenuDrawer(),
       body: FutureBuilder<List<Result>>(
           future: fetchMasak(),
           builder: (context, snapshot) {
