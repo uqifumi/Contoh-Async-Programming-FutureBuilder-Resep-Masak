@@ -20,6 +20,15 @@ http: ^0.13.5 (https://pub.dev/packages/http)<br>
 ## Referensi 
 Dokumentasi JSON API dan URL endpoint yang digunakan di program dapat diakses di:
 https://github.com/tomorisakura/unofficial-masakapahariini-api
+# Update (19 November 2022)
+Dalam program ini ada update sebagai berikut:
+# Navigasi Drawer
+Navigasi drawer digunakan untuk navigasi ke bagian screen utama (home) dan screen pencarian resep makanan. Adapun tampilannya adalah sebagai berikut:
+<br><br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/gambar%2002.png" width="250"/><br>
+# Screen(Halaman) Pencarian
+Halaman pencarian terdiri dari widget texfield untuk memasukkan kata kunci resep masakan. Selain itu terdapat widget listview untuk menampilkan hasil pencarian sebagai keluaran dari proses pencarian yang dipanggil properti future dalam widget futurebuilder. Berikut tampilan halaman pencarian yang dimaksud:
+<br><br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/gambar%2002.png" width="250"/><br>
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Gambar%2003.png" width="250"/><br>
 
 # async_programming_futurebuilder_resepmasak
 
