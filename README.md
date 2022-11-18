@@ -27,8 +27,17 @@ Navigasi drawer digunakan untuk navigasi ke bagian screen utama (home) dan scree
 <br><br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/gambar%2002.png" width="250"/><br>
 # Screen(Halaman) Pencarian
 Halaman pencarian terdiri dari widget texfield untuk memasukkan kata kunci resep masakan. Selain itu terdapat widget listview untuk menampilkan hasil pencarian sebagai keluaran dari proses pencarian yang dipanggil properti future dalam widget futurebuilder. Berikut tampilan halaman pencarian yang dimaksud:
-<br><br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/gambar%2002.png" width="250"/><br>
-<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Gambar%2003.png" width="250"/><br>
+<br>
+- Navigasi Drawer
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2001.png" width="250"/><br>
+- Halaman Pencarian
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2002.png" width="250"/><br>
+- Input Kata kunci
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2003.png" width="250"/><br>
+- Hasil Pencarian
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2004.png" width="250"/><br>
+- Detail Resep Masakan
+<br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2006.png" width="250"/><br>
 
 # async_programming_futurebuilder_resepmasak
 
