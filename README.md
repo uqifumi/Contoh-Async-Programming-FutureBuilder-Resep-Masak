@@ -37,6 +37,12 @@ Halaman pencarian terdiri dari widget texfield untuk memasukkan kata kunci resep
 <br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2004.png" width="250"/><br><br>
 - Detail Resep Masakan
 <br><img src="https://github.com/uqifumi/Contoh-Async-Programming-FutureBuilder-Resep-Masak/blob/master/dokumentasi/Update%2006.png" width="250"/><br>
+# Update (27 November 2022)
+## Perbaikan Bug
+- Pada saat pertama kali screen pencarian digunakan untuk pencarian resep masakan, circular progress indicator tampil pada saat dijalankan request pengiriman kata kunci ke server untuk pencarian resep masakan. Ketika server merespon dan mengirimkan data hasil pencarian, maka data berhasil ditampilkan dengan widget listview di program/aplikasi. Namun pada pencarian kedua dan selanjutnya, circular progress indicator tidak tampil pada saat request ke server dijalankan dan screen tetap menampilkan list hasil pencarian resep sebelumnya. Walaupun request tetap dijalankan dan data respon dari server ditampilkan di widget listview menggantikan hasil pencarian sebelumnya.
+- Kendala ini berakibat pada pengguna dapat menghentikan (interupt) proses pencarian pada saat request dan menunggu respon server dengan tap salah satu resep masakan di list hasil pencarian resep masakan sebelumnya yang berimbas ke request data detail resep masakannya ke server.
+## Penambahan Fungsi
+- Pada screen home tidak hanya menampilkan sepuluh resep masakan. Dengan mekanisme infinite scroll pagination/lazy loading, maka akan ditampilkan sepuluh resep masakan berikutnya jika scroll telah mencapai data resep masakan paling bawah (terakhir).
 
 # async_programming_futurebuilder_resepmasak
 
