@@ -11,6 +11,9 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     String judul = result.key;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cara Masak'),
+      ),
       body: FutureBuilder<DetailMasak>(
           future: fetchDetailMasak(judul),
           builder: (context, snapshot) {
@@ -28,7 +31,8 @@ class Detail extends StatelessWidget {
 }
 
 class TampilCaraMasak extends StatelessWidget {
-  const TampilCaraMasak({Key? key, required this.datadetailmasak}) : super(key: key);
+  const TampilCaraMasak({Key? key, required this.datadetailmasak})
+      : super(key: key);
   final DetailMasak? datadetailmasak;
   final bool? gambar = true;
 
@@ -83,7 +87,10 @@ class TampilCaraMasak extends StatelessWidget {
     // Bagian bahan-bahan
     List<String>? itemBahan = datadetailmasak!.results.ingredient;
     Widget bagianBahan = Column(
-      children: [const Text('Bahan-bahan:', ),
+      children: [
+        const Text(
+          'Bahan-bahan:',
+        ),
         Column(
           children: itemBahan.map((bahan) {
             return ListTile(
@@ -97,10 +104,13 @@ class TampilCaraMasak extends StatelessWidget {
       ],
     );
 
-     // Bagian cara masak
+    // Bagian cara masak
     List<String>? itemTahap = datadetailmasak!.results.step;
     Widget bagianTahap = Column(
-      children: [const Text('Cara masak:', ),
+      children: [
+        const Text(
+          'Cara masak:',
+        ),
         Column(
           children: itemTahap.map((cara) {
             return ListTile(
@@ -115,9 +125,6 @@ class TampilCaraMasak extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cara Masak'),
-      ),
       body: ListView(
         children: <Widget>[
           // Bagian gambar

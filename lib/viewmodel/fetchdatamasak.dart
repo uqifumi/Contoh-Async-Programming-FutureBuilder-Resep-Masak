@@ -6,7 +6,24 @@ Future<List<Result>> fetchMasak() async {
 
   Response response = await get(Uri.parse(
       'https://masak-apa-tomorisakura.vercel.app/api/recipes-length/?limit=10'));
-  
+
+  if (response.statusCode == 200) {
+    final masak = masakFromJson(response.body);
+    Map jsonMasak = masak.toJson();
+    List listMasak = jsonMasak["results"] as List;
+    datamasak = listMasak.map<Result>((json) => Result.fromJson(json)).toList();
+    return datamasak;
+  } else {
+    throw Exception('Failed to load data masak');
+  }
+}
+
+Future<List<Result>> fetchMasakPage(int page) async {
+  List<Result> datamasak;
+
+  Response response = await get(
+      Uri.parse('https://masak-apa-tomorisakura.vercel.app/api/recipes/$page'));
+
   if (response.statusCode == 200) {
     final masak = masakFromJson(response.body);
     Map jsonMasak = masak.toJson();
@@ -23,7 +40,7 @@ Future<List<Result>> fetchCariResep(String katakunci) async {
 
   Response response = await get(Uri.parse(
       'https://masak-apa.tomorisakura.vercel.app/api/search/?q=$katakunci'));
-  
+
   if (response.statusCode == 200) {
     final masak = masakFromJson(response.body);
     Map jsonMasak = masak.toJson();

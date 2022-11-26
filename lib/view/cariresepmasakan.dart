@@ -12,24 +12,25 @@ class CariResepMasakah extends StatefulWidget {
 
 class _CariResepMasakahState extends State<CariResepMasakah> {
   List<Result>? daftarHasilPencarianResep;
+  late List<Result> listHasilCari;
   TextEditingController controllerCari = TextEditingController();
   late String katakunci;
   late bool prosesCari;
+  bool adaHasil = false;
+  late Widget dialogProgress;
 
   @override
   Widget build(BuildContext context) {
-    // Bagian field pencarian
+    // Bagian field pencarian.
     Widget fieldPencarian = Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
         onSubmitted: (value) {
-          katakunci = value;
           setState(() {
             prosesCari = true;
-            katakunci = controllerCari.text;
-             controllerCari.clear();
+            katakunci = value;
           });
-         
+          controllerCari.clear();
         },
         controller: controllerCari,
         textInputAction: TextInputAction.search,
@@ -44,26 +45,56 @@ class _CariResepMasakahState extends State<CariResepMasakah> {
       ),
     );
 
-    // Bagian logo pencarian
-    Widget logoCari = Column(mainAxisAlignment: MainAxisAlignment.center,
+    // Bagian logo pencarian.
+    Widget logoCari = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        Icon(Icons.search, size: 20, color: Colors.grey,),
-        Text('Masak apa', style: TextStyle(fontSize: 20, color: Colors.grey),)
+        Icon(
+          Icons.search,
+          size: 40,
+          color: Colors.grey,
+        ),
+        Text(
+          'Masak apa',
+          style: TextStyle(fontSize: 20, color: Colors.grey),
+        )
       ],
     );
 
-    // Bagian futurebuilder
+    // Bagian futurebuilder.
     Widget tampilHasilCari = FutureBuilder<List<Result>>(
       future: fetchCariResep(katakunci),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          const Center(
+          return const Center(
             child: Text('Gagal ambil data...'),
           );
         }
-        return snapshot.hasData
-            ? ListMasak(result: snapshot.data)
-            : const Center(child: CircularProgressIndicator());
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasData && snapshot.data!.isEmpty) {
+          return Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.warning,
+                size: 40,
+                color: Colors.grey,
+              ),
+              Text(
+                'Tidak ditemukan',
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              )
+            ],
+          ));
+        }
+        return ListMasak(result: snapshot.data);
       },
     );
 
@@ -74,9 +105,7 @@ class _CariResepMasakahState extends State<CariResepMasakah> {
       body: Column(
         children: [
           fieldPencarian,
-          Expanded(
-            child: (prosesCari == true) ? tampilHasilCari : logoCari 
-          ),
+          Expanded(child: (prosesCari == true) ? tampilHasilCari : logoCari),
         ],
       ),
     );

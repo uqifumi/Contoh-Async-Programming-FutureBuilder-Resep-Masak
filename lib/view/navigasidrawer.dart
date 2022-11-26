@@ -34,7 +34,8 @@ class MenuDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CariResepMasakah()),
+                MaterialPageRoute(
+                    builder: (context) => const CariResepMasakah()),
               );
             },
           )
